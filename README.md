@@ -1,24 +1,11 @@
-# README
+# hyconn2016
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A project to migrate an exhibition in Fedora 3 to Fedora 4
+## Checkpoint Branches
+### [Simple Migration](/hyconn2016/tree/migrate-simple)
+### [Simple Migration with Hooks](/hyconn2016/tree/migrate-hooks)
+### [Migration with RDF Metadata](/hyconn2016/tree/migrate-metadata)
+### [Migration with Multiple Related Files](/hyconn2016/tree/migrate-ocr)
+### [Migration with Member Objects](/hyconn2016/tree/migrate-members)
+### [Migration with Ordered Member Objects](/hyconn2016/tree/migrate-structure)
+### [Migration with Generated Derivatives](/hyconn2016/tree/migrate-derivatives)

@@ -3,6 +3,8 @@
 
 require_relative 'config/application'
 
+require 'fedora_migrate_tasks'
+
 Rails.application.load_tasks
 
 require 'solr_wrapper/rake_task' unless Rails.env.production?

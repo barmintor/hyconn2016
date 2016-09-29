@@ -19,5 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+# Ignore the fedora configurations
 /config/fedora.yml
+/config/fedora3.yml
 

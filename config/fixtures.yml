@@ -1,0 +1,92 @@
+:all:
+  :generic_files:
+    - "usna:3"
+    - "usna:4"
+    - "usna:5"
+    - "usna:6"
+    - "usna:7"
+    - "usna:8"
+    - "usna:9"
+    - "usna:10"
+    - "usna:11"
+    - "usna:12"
+    - "usna:13"
+    - "usna:14"
+    - "usna:15"
+  :admin_sets:
+    - "collection:1"
+  :pages:
+    - "archives:1419123a"
+    - "archives:1419123b"
+    - "archives:1667751a"
+    - "archives:1667751b"
+    - "archives:1667751c"
+    - "archives:1667751d"
+    - "archives:1408042a"
+  :works:
+    - "archives:1419123"
+    - "archives:1667751"
+    - "archives:1408042"
+  :collections:
+    - "lccn:2005616761"
+:files_assets:
+  :generic_files:
+    - "usna:3"
+    - "usna:4"
+    - "usna:5"
+    - "usna:6"
+    - "usna:7"
+    - "usna:8"
+    - "usna:9"
+    - "usna:10"
+    - "usna:11"
+    - "usna:12"
+    - "usna:13"
+    - "usna:14"
+    - "usna:15"
+  :admin_sets:
+    - "collection:1"
+  :pages: []
+  :works: []
+  :collections: []
+:1419123:
+  :generic_files:
+    - "usna:3"
+    - "usna:4"
+    - "usna:15"
+  :admin_sets: []
+  :pages:
+    - "archives:1419123a"
+    - "archives:1419123b"
+  :works:
+    - "archives:1419123"
+  :collections: []
+:1667751:
+  :generic_files:
+    - "usna:5"
+    - "usna:6"
+    - "usna:7"
+    - "usna:8"
+    - "usna:9"
+    - "usna:10"
+    - "usna:11"
+    - "usna:12"
+  :admin_sets: []
+  :pages:
+    - "archives:1667751a"
+    - "archives:1667751b"
+    - "archives:1667751c"
+    - "archives:1667751d"
+  :works:
+    - "archives:1667751"
+  :collections: []
+:1408042:
+  :generic_files:
+    - "usna:13"
+    - "usna:14"
+  :admin_sets: []
+  :pages:
+    - "archives:1408042a"
+  :works:
+    - "archives:1408042"
+  :collections: []
