@@ -1,0 +1,8 @@
+development:
+  url: http://localhost:6081/fedora
+  user: fedoraAdmin
+  password: changeme
+test:
+  url: http://localhost:6081/fedora
+  user: fedoraAdmin
+  password: changeme

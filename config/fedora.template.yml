@@ -1,0 +1,15 @@
+development:
+  user: fedoraAdmin
+  password: changeme
+  url: http://127.0.0.1:8080/fcrepo/rest
+  base_path: /dev
+test:
+  user: fedoraAdmin
+  password: changeme
+  url: http://127.0.0.1:8080/fcrepo/rest
+  base_path: /test
+production:
+  user: fedoraAdmin
+  password: changeme
+  url: http://127.0.0.1:8080/fcrepo/rest
+  base_path: /prod
