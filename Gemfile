@@ -49,6 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'curation_concerns'
 gem 'fedora-migrate', git: 'https://github.com/projecthydra-labs/fedora-migrate.git', branch: 'master'
+gem 'rdf-rdfxml'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'

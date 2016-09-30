@@ -212,10 +212,13 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
+    haml (4.0.7)
+      tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hooks (0.3.6)
       uber (~> 0.0.4)
+    htmlentities (4.3.4)
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
       mimemagic
@@ -384,13 +387,28 @@ GEM
     rdf (2.1.0)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
+    rdf-aggregate-repo (2.0.0)
+      rdf (~> 2.0)
     rdf-isomorphic (2.0.0)
       rdf (~> 2.0)
+    rdf-rdfa (2.0.1)
+      haml (~> 4.0)
+      htmlentities (~> 4.3)
+      rdf (~> 2.0)
+      rdf-aggregate-repo (~> 2.0)
+      rdf-xsd (~> 2.0)
+    rdf-rdfxml (2.0.0)
+      htmlentities (~> 4.3)
+      rdf (~> 2.0)
+      rdf-rdfa (~> 2.0)
+      rdf-xsd (~> 2.0)
     rdf-turtle (2.0.0)
       ebnf (~> 1.0, >= 1.0.1)
       rdf (~> 2.0)
     rdf-vocab (2.1.0)
       rdf (~> 2.1)
+    rdf-xsd (2.0.0)
+      rdf (~> 2.0)
     redis (3.3.1)
     redlock (0.1.8)
       redis (~> 3, >= 3.0.0)
@@ -533,6 +551,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rdf-rdfxml
   rsolr (~> 1.0)
   rspec-rails
   sass-rails (~> 5.0)
@@ -546,4 +565,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.11.2
+   1.13.1
