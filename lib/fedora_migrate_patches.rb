@@ -18,5 +18,19 @@ module FedoraMigrate
       end
     end
   end
+  # monkeypatch FedoraMigrate::TargetConstructor to swap FileSet for GenericFile
+  class TargetConstructor
+    private
+    def target
+      @target ||= begin 
+        _target = nil
+        candidates.each do |model|
+          _target ||= FedoraMigrate::Mover.id_component(model).eql?("GenericFile") ? FileSet : nil
+        end
+        _target
+      end
+      @target ||= determine_target
+    end
+  end
   autoload :Tasks, 'fedora_migrate/tasks'
 end
