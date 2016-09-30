@@ -6,6 +6,15 @@ module FedoraMigrate::Hooks
   # Called from FedoraMigrate::ObjectMover
   def before_object_migration
     # additional actions as needed
+    # make sure migrated objects will validate
+    if target.is_a? Hydra::WithDepositor
+      depositor = source.ownerId.blank? ? "fedoraAdmin" : source.ownerId
+      target.apply_depositor_metadata(depositor)
+    end
+    if target.has_attribute? :title
+      target.title ||= []
+      target.title << source.label if target.title.empty?
+    end
   end
 
   # Called from FedoraMigrate::ObjectMover
@@ -35,6 +44,8 @@ module FedoraMigrate::Hooks
 
 end
 
+require 'fedora_migrate_patches'
+
 desc "Delete all the content in Fedora 4"
 task clean: :environment do
   ActiveFedora::Cleaner.clean!
@@ -47,19 +58,19 @@ task migrate: :environment do
   assets = asset_map[:'1667751']
   subreports = []
   assets[:generic_files].each do |pid|
-    subreports << Fedora::Migrate::Tasks.migrate_file_set(pid, true)
+    subreports << Fedora::Migrate::Tasks.migrate_file_set(pid, reload: true)
   end
   assets[:admin_sets].each do |pid|
-    subreports << Fedora::Migrate::Tasks.migrate_administrative_set(pid, true)
+    subreports << Fedora::Migrate::Tasks.migrate_administrative_set(pid, reload: true)
   end
   assets[:pages].each do |pid|
-    subreports << Fedora::Migrate::Tasks.migrate_work(pid, true)
+    subreports << Fedora::Migrate::Tasks.migrate_work(pid, reload: true)
   end
   assets[:works].each do |pid|
-    subreports << Fedora::Migrate::Tasks.migrate_work(pid, true)
+    subreports << Fedora::Migrate::Tasks.migrate_work(pid, reload: true)
   end
   assets[:collections].each do |pid|
-    subreports << Fedora::Migrate::Tasks.migrate_collection(pid, true)
+    subreports << Fedora::Migrate::Tasks.migrate_collection(pid, reload: true)
   end
   subreports.compact!
   report = FedoraMigrate::MigrationReport.new
