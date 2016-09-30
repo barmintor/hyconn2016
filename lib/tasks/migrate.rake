@@ -1,7 +1,7 @@
 module FedoraMigrate::Hooks
 
   # @source is a Rubydora object
-  # @target is a Hydra 9 modeled object
+  # @target is a modern Hydra/ActiveFedora modeled object
 
   # Called from FedoraMigrate::ObjectMover
   def before_object_migration
