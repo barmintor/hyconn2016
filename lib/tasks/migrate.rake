@@ -15,6 +15,18 @@ module FedoraMigrate::Hooks
       target.title ||= []
       target.title << source.label if target.title.empty?
     end
+    # migrate legacy properties
+    if source.state
+      case source.state
+      when 'D'
+        target.legacy_state = ActiveFedora::RDF::Fcrepo::Model.Deleted
+      when 'I'
+        target.legacy_state = ActiveFedora::RDF::Fcrepo::Model.Inactive
+      else
+        target.legacy_state = ActiveFedora::RDF::Fcrepo::Model.Active
+      end
+    end
+    target.legacy_pid = source.pid
   end
 
   # Called from FedoraMigrate::ObjectMover
