@@ -4,5 +4,5 @@ class Collection < ActiveFedora::Base
   # You can replace these metadata if they're not suitable
   include CurationConcerns::BasicMetadata
   include FedoraMigrate::LegacyMetadata
-  has_subresource "descMetadata", class_name: "ActiveFedora::File"
+  include FedoraMigrate::BasicMetadata
 end

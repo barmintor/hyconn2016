@@ -11,10 +11,7 @@ module FedoraMigrate::Hooks
       depositor = source.ownerId.blank? ? "fedoraAdmin" : source.ownerId
       target.apply_depositor_metadata(depositor)
     end
-    if target.has_attribute? :title
-      target.title ||= []
-      target.title << source.label if target.title.empty?
-    end
+
     # migrate legacy properties
     if source.state
       case source.state
@@ -42,6 +39,20 @@ module FedoraMigrate::Hooks
   # Called from FedoraMigrate::RDFDatastreamMover
   def after_rdf_datastream_migration
     # additional actions as needed
+    resource = target.resource
+    subject = resource.rdf_subject
+    resource.query(subject: subject, predicate: RDF::Vocab::DC.creator) do |statement|
+      mod = statement.clone
+      mod.predicate = ::RDF::Vocab::DC11.creator
+      resource.delete_statement statement
+      resource.insert_statement mod
+    end
+    resource.query(subject: subject, predicate: RDF::Vocab::DC.publisher) do |statement|
+      mod = statement.clone
+      mod.predicate = ::RDF::Vocab::DC11.publisher
+      resource.delete_statement statement
+      resource.insert_statement mod
+    end
   end
 
   # Called from FedoraMigrate::DatastreamMover
@@ -54,6 +65,19 @@ module FedoraMigrate::Hooks
     # additional actions as needed
   end
 
+  # Called from patched ObjectMover
+  def before_content_datastreams
+    # additional actions as needed
+    # make sure migrated objects will validate
+    if target.has_attribute? :title
+      target.title ||= []
+      target.title << source.label if target.title.empty?
+    end
+  end
+
+  def after_content_datastreams
+    # additional actions as needed
+  end
 end
 
 require 'fedora_migrate_patches'
