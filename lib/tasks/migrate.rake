@@ -24,6 +24,7 @@ module FedoraMigrate::Hooks
       end
     end
     target.legacy_pid = source.pid
+    target.read_groups = ['public']
   end
 
   # Called from FedoraMigrate::ObjectMover
