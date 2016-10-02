@@ -11,6 +11,28 @@ module FedoraMigrate
       migrate_permissions
       migrate_dates
     end
+    def migrate_content_datastreams
+      save # for versions to work
+      target.attached_files.keys.each do |ds|
+        mover = FedoraMigrate::DatastreamMover.new(source.datastreams[ds.to_s], target.attached_files[ds.to_s], options)
+        report.content_datastreams << ContentDatastreamReport.new(ds, mover.migrate)
+      end
+      migrate_ocr
+    end
+    def migrate_ocr
+      ds = source.datastreams['ocr']
+      if ds && !ds.new?
+        ocr_file_set = target.transcript
+        depositor = source.ownerId.blank? ? "fedoraAdmin" : source.ownerId
+        ocr_file_set.apply_depositor_metadata(depositor)
+        ocr_file_set.type << ::RDF::URI('http://pcdm.org/use#ExtractedText')
+        target.members << ocr_file_set
+        target_file = ocr_file_set.build_extracted_text
+        ocr_file_set.original_file = target_file # this dance is to have two types
+        mover = FedoraMigrate::DatastreamMover.new(ds, target_file, options)
+        report.content_datastreams << ContentDatastreamReport.new(ds, mover.migrate)
+      end
+    end
   end
   class RDFDatastreamMover
     private

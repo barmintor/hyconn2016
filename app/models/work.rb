@@ -9,5 +9,5 @@ class Work < ActiveFedora::Base
   # Change this to restrict which works can be added as a child.
   # self.valid_child_concerns = []
   validates :title, presence: { message: 'Your work must have a title.' }
-  has_subresource "ocr", class_name: "ActiveFedora::File"
+  has_subresource "transcript", class_name: "FileSet", autocreate: false
 end
