@@ -2,5 +2,7 @@
 class FileSet < ActiveFedora::Base
   include ::CurationConcerns::FileSetBehavior
   include FedoraMigrate::LegacyMetadata
-  has_subresource "content", class_name: "ActiveFedora::File"
+  def viruses?
+    false # no av installed on vagrant
+  end
 end
