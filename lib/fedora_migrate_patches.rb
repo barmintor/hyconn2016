@@ -18,4 +18,5 @@ module FedoraMigrate
       end
     end
   end
+  autoload :Tasks, 'fedora_migrate/tasks'
 end
