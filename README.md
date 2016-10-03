@@ -47,3 +47,6 @@ Review example ordering source (structMetadata)
 
 Modify FedoraMigrate::Works::MembersMover to push to ordered_members when there is structMetadata available
 ### [Migration with Generated Derivatives](../../tree/migrate-derivatives)
+Implement a FileSetMover to migrate content datastreams as directly-contained original Files on a FileSet
+
+Inline characterization of original file 
