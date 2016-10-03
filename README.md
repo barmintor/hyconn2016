@@ -33,6 +33,11 @@ write and include `FedoraMigrate::BasicMetadata` mixin for models with additiona
 make migrated objects publicly readable
 
 ### [Migration with Multiple Related Files](../../tree/migrate-ocr-fileset)
+
+[Review Hydra::Works::ContainedFiles](https://github.com/projecthydra/hydra-works/blob/master/lib/hydra/works/models/concerns/file_set/contained_files.rb)
+
+Add a service file typed membership to FileSet
+
 ### [Migration with Member Objects](../../tree/migrate-members)
 ### [Migration with Ordered Member Objects](../../tree/migrate-structure)
 ### [Migration with Generated Derivatives](../../tree/migrate-derivatives)
