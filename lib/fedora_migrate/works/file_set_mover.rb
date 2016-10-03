@@ -8,6 +8,9 @@ module FedoraMigrate
           mover = FedoraMigrate::DatastreamMover.new(ds, ofile, options)
           report.content_datastreams << ContentDatastreamReport.new(ds.dsid, mover.migrate)
           save
+          filename = CurationConcerns::WorkingDirectory.find_or_retrieve(ofile.id, target.id, nil)
+          Hydra::Works::CharacterizationService.run(target.original_file, filename)
+          target.create_derivatives(filename)
         end
       end
     end
