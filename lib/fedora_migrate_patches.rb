@@ -75,4 +75,5 @@ module FedoraMigrate
     end
   end
   autoload :Tasks, 'fedora_migrate/tasks'
+  autoload :Works, 'fedora_migrate/works'
 end

@@ -32,7 +32,8 @@ module FedoraMigrate
       mover = FedoraMigrate::ObjectMover.new(source, target, options)
       mover.migrate
       target = ActiveFedora::Base.find(mover.target.id)
-      FedoraMigrate::RelsExtDatastreamMover.new(source, target, options).migrate
+      FedoraMigrate::Works::RelsExtDatastreamMover.new(source, target, options).migrate
+      FedoraMigrate::Works::MembersMover.new(source, target, options).migrate
       nil
     end
     def self.migrate_administrative_set(pid, options={})
