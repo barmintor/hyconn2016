@@ -39,5 +39,8 @@ make migrated objects publicly readable
 Add a service file typed membership to FileSet
 
 ### [Migration with Member Objects](../../tree/migrate-members)
+[Review FedoraMigrate::RelExtDatastreamMover](https://github.com/projecthydra-labs/fedora-migrate/blob/master/lib/fedora_migrate/rels_ext_datastream_mover.rb)
+
+Implement RelsExtDatastreamMover and MembersMover to migrate pcdm:hasMember as membership rather than description
 ### [Migration with Ordered Member Objects](../../tree/migrate-structure)
 ### [Migration with Generated Derivatives](../../tree/migrate-derivatives)
