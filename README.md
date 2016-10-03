@@ -43,4 +43,7 @@ Add a service file typed membership to FileSet
 
 Implement RelsExtDatastreamMover and MembersMover to migrate pcdm:hasMember as membership rather than description
 ### [Migration with Ordered Member Objects](../../tree/migrate-structure)
+Review example ordering source (structMetadata)
+
+Modify FedoraMigrate::Works::MembersMover to push to ordered_members when there is structMetadata available
 ### [Migration with Generated Derivatives](../../tree/migrate-derivatives)
